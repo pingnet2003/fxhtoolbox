@@ -9,7 +9,7 @@ import time
 #设立函数，来取得当前时间，作为文件名的一部分，以免文件名重复
 def get_sysdate():
     now = time.strftime("%Y-%m-%d-%H:%M:%S", time.localtime(time.time()))
-    # print(now)
+    print(now)
     return now
 
 def Tl_badiu_Scan(website):
