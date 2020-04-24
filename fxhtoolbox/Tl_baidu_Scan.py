@@ -13,8 +13,8 @@ def get_sysdate():
     return now
 
 def Tl_badiu_Scan(website):
-    ak='f2wosFQ4weetEEAmzGiFhLDp'
-    sk='Yb0Gs7W2Q6UQhO3Aj4r6jESPVEOo5nEo'
+    ak='xxxxxxxx'
+    sk='yyyyyyyy'
 #设立返回列表,保存各阶段执行时间点及返回值
     ret_val=[]
 
