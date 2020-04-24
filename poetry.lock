@@ -149,6 +149,17 @@ python-versions = "*"
 version = "0.1.9"
 
 [[package]]
+category = "main"
+description = "Dumb downloader that scrapes the web"
+name = "you-get"
+optional = false
+python-versions = "*"
+version = "0.4.1432"
+
+[package.extras]
+socks = ["pysocks"]
+
+[[package]]
 category = "dev"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 marker = "python_version < \"3.8\""
@@ -162,7 +173,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "eed55bb7040b5643966126c9eb27eca469a0fd38860e86f0a67c65cdab82835f"
+content-hash = "1f4c2c158e5855684babfbbccb4f6a8b3c1d89bf7c0fa3a696e5b3d01348f7f6"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -217,6 +228,10 @@ six = [
 wcwidth = [
     {file = "wcwidth-0.1.9-py2.py3-none-any.whl", hash = "sha256:cafe2186b3c009a04067022ce1dcd79cb38d8d65ee4f4791b8888d6599d1bbe1"},
     {file = "wcwidth-0.1.9.tar.gz", hash = "sha256:ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"},
+]
+you-get = [
+    {file = "you-get-0.4.1432.tar.gz", hash = "sha256:421b71ee644afc63581c2d57bf6785c0e65c51d9debe74b8449685c90fd56f44"},
+    {file = "you_get-0.4.1432-py3-none-any.whl", hash = "sha256:c1f299f358a33ab391b36237874e0be0ae12f138834e48a0f20bf61f2d754024"},
 ]
 zipp = [
     {file = "zipp-3.1.0-py3-none-any.whl", hash = "sha256:aa36550ff0c0b7ef7fa639055d797116ee891440eac1a56f378e2d3179e0320b"},

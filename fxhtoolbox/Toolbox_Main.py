@@ -63,7 +63,8 @@ class Win_Program:
         pass
 
     def Call_wifi_scan_win(self,father_win):
-        Tl_wifi_scan_screen(father_win)
+        # Tl_wifi_scan_screen(father_win)
+        Tl_wifi_scan_screen()
         pass
 
     def Call_opencv01_scan_win(self,father_win):

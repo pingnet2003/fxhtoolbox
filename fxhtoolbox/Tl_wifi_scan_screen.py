@@ -9,8 +9,8 @@ import pywifi
 from pywifi import const
 
 class Tl_wifi_scan_screen(object):
-    def __init__(self,father_win):
-        self.master = tk.Toplevel(father_win)
+    def __init__(self):
+        self.master = tk.Tk()
         # self.master = tk.Tk()
         self.master.title('wifi 地址扫描')
 
