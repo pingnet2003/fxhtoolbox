@@ -5,8 +5,8 @@ from tkinter import filedialog
 import random
 import os
 import time
-import pywifi
-from pywifi import const
+import pywifi     #pip install pywifi
+from pywifi import const      #pip install comtypes
 
 class Tl_wifi_scan_screen(object):
     def __init__(self):
