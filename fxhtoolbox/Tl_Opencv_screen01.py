@@ -1,5 +1,5 @@
-import cv2
-import pyzbar.pyzbar as pyzbar    #pip install pyzbar
+import cv2                   #pip install opencv-python 
+import pyzbar as pyzbar    #pip install pyzbar
 
 class Tl_Opencv_screen01(object):
     def __init__(self,father_win):

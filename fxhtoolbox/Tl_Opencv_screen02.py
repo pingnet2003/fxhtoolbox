@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-import pyzbar.pyzbar as pyzbar
+import pyzbar as pyzbar
 
 
 class Tl_Opencv_screen02(object):

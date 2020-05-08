@@ -1,7 +1,7 @@
 '''
 将一张图片填充为正方形后切为9张图
 '''
-from PIL import Image
+from PIL import Image   #pip install pillow
 import sys
 #将图片填充为正方形
 def fill_image(image):
