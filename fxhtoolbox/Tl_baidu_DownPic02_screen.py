@@ -4,6 +4,7 @@ from tkinter.ttk import *
 from tkinter import ttk
 from Tl_class_frame import *
 from Tl_baidu_DownPic02 import *
+import tkinter.messagebox
 import os
 import time
 from tkinter.filedialog import askopenfilename
@@ -20,8 +21,8 @@ class PiMain(object):
 
         # #增加Label,用来        
         tk.Label(lf1,text='要下载在内容').pack(anchor=tk.NW)
-        self.file1=tk.StringVar()        
-        tk.Entry(lf1,width=50,textvariable=self.file1).pack(anchor=tk.NW,expand='true',fill='x')
+        self.keyword=tk.StringVar()        
+        tk.Entry(lf1,width=50,textvariable=self.keyword).pack(anchor=tk.NW,expand='true',fill='x')
 
         # tk.Label(lf1,text='文件夹路径:').pack(side=tk.LEFT)
         tk.Label(lf1,text='文件夹路径:').pack(anchor=tk.NW)        
@@ -29,7 +30,8 @@ class PiMain(object):
         tk.Entry(lf1,width=40,textvariable=self.file1).pack(anchor=tk.NW)
         
         tk.Label(lf1,text='所需图片数量:').pack(anchor=tk.NW)        
-        self.pic_number=tk.StringVar()        
+        self.pic_number=tk.StringVar()  
+        self.pic_number.set(10)      
         tk.Entry(lf1,width=10,textvariable=self.pic_number).pack(anchor=tk.NW)
 
         vButton = tk.Button(lf1, text='...', width=3,command=self.getfile)
@@ -37,22 +39,20 @@ class PiMain(object):
         vButton = tk.Button(lf1, text='下载1', width=8,command=self.Call_baidu_Downpic02)
         vButton.pack(side=tk.LEFT)
 
-    def renamefile(self):
-        direct1=self.file1.get()
-        # print(direct1)
-        direct2=self.get_sysdate2()
-        bak_direct1=os.path.join(direct1,direct2)
-        # print(bak_direct1)        
-        files = os.listdir(direct1)
-        print(files)
-        files2=sorted(files)
-        print(files2)
-        # for i in files:
-        #     if os.path.isfile(os.path.join(direct1,i)):
-        #         print(os.path.join(direct1,i))
-
     def Call_baidu_Downpic02(self):
-        call_DownPic02_main('Raspberry',5)
+        # print(self.keyword.get())
+        # print(self.file1.get())
+        # print(self.pic_number.get())
+        if self.keyword.get()=='' or self.file1.get()=='' or self.pic_number.get()=='':
+            # print('sssss')
+            tkinter.messagebox.showerror(title='操作失败', message='有参数为空,请先检查')
+        else:
+            try:
+                pic_number1=int(self.pic_number.get())
+                call_DownPic02_main(self.keyword.get(),pic_number1)
+                tkinter.messagebox.showinfo(title='操作完成', message='操作完成')
+            except:
+                tkinter.messagebox.showerror(title='操作失败', message='所需图片数量 不正确,请先检查')
 
     def getfile(self):
         xx = tk.filedialog.askdirectory()
