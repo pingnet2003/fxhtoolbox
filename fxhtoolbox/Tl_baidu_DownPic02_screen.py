@@ -3,13 +3,14 @@ import tkinter as tk
 from tkinter.ttk import *
 from tkinter import ttk
 from Tl_class_frame import *
-from Tl_baidu_DownPic02 import *
+# from Tl_baidu_DownPic02 import *
+from Tl_baidu_DownPic02  import *
 import tkinter.messagebox
 import os
 import time
 from tkinter.filedialog import askopenfilename
 
-class PiMain(object):
+class Tl_baidu_DownPic02_screen(object):
     #设计UI 界面
     def setupUI(self):
         v = View(self.root, kind='日', orient=tk.HORIZONTAL)
@@ -24,18 +25,23 @@ class PiMain(object):
         self.keyword=tk.StringVar()        
         tk.Entry(lf1,width=50,textvariable=self.keyword).pack(anchor=tk.NW,expand='true',fill='x')
 
-        # tk.Label(lf1,text='文件夹路径:').pack(side=tk.LEFT)
-        tk.Label(lf1,text='文件夹路径:').pack(anchor=tk.NW)        
+        # lf1_2=tk.LabelFrame(lf1,text='文件夹路径:')
+        lf1_2=tk.Frame(lf1)
+        lf1_2.pack(anchor=tk.NW,ipadx=60,ipady=10,padx=5)   
+        # tk.Label(lf1_2,text='文件夹路径:').pack(side=tk.LEFT)
+        tk.Label(lf1_2,text='文件夹路径:').pack(anchor=tk.NW)        
         self.file1=tk.StringVar()        
-        tk.Entry(lf1,width=40,textvariable=self.file1).pack(anchor=tk.NW)
+        tk.Entry(lf1_2,width=40,textvariable=self.file1).pack(anchor=tk.NW)
+        vButton = tk.Button(lf1_2, text='...', width=3,command=self.getfile)
+        # vButton.pack(side=tk.LEFT)
+        vButton.pack(anchor=tk.NW)
         
         tk.Label(lf1,text='所需图片数量:').pack(anchor=tk.NW)        
         self.pic_number=tk.StringVar()  
         self.pic_number.set(10)      
         tk.Entry(lf1,width=10,textvariable=self.pic_number).pack(anchor=tk.NW)
 
-        vButton = tk.Button(lf1, text='...', width=3,command=self.getfile)
-        vButton.pack(side=tk.LEFT)
+        
         vButton = tk.Button(lf1, text='下载1', width=8,command=self.Call_baidu_Downpic02)
         vButton.pack(side=tk.LEFT)
 
@@ -49,10 +55,13 @@ class PiMain(object):
         else:
             try:
                 pic_number1=int(self.pic_number.get())
-                call_DownPic02_main(self.keyword.get(),pic_number1)
+                call_DownPic02_main(self.keyword.get(),self.file1.get(),pic_number1)
                 tkinter.messagebox.showinfo(title='操作完成', message='操作完成')
             except:
-                tkinter.messagebox.showerror(title='操作失败', message='所需图片数量 不正确,请先检查')
+                import sys
+                tuple=sys.exc_info()
+                errmsg='导入图片失败'+'错误为:'+str(tuple[1])
+                tkinter.messagebox.showerror(title='操作失败', message=errmsg)
 
     def getfile(self):
         xx = tk.filedialog.askdirectory()
@@ -73,12 +82,13 @@ class PiMain(object):
 
     #类的运行主体
     def __init__(self):
-        self.root = tk.Tk()
+        # self.root = tk.Tk()   #本界面单独运行时,需要用到本行语句
+        self.root = tk.Toplevel()
         self.root.title(string='Baidu 图片下载 管理')
         self.setCenter(self.root, 700, 300)
         self.setupUI()
         self.root.mainloop()
 
 if __name__=='__main__':
-    PiMain()
+    Tl_baidu_DownPic02_screen()
 

@@ -5,6 +5,8 @@ from Tl_ip_scan_screen import *
 from Tl_wifi_scan_screen import *
 from Tl_Opencv_screen01 import *
 from Tl_Opencv_screen02 import *
+from Tl_baidu_DownPic02_screen import *
+from Tl_Rename_screen import *
 
 class Win_Program:
     def __init__(self):
@@ -31,6 +33,10 @@ class Win_Program:
         # button1.pack(side=tk.RIGHT)
         button1.grid(row=0,column=1,padx=5,pady=0)
 
+        button1=tk.Button(fm1,text='baidu图片下载',command=Tl_baidu_DownPic02_screen)
+        # button1.pack(side=tk.RIGHT)
+        button1.grid(row=0,column=2,padx=5,pady=0)
+
 
         fm2=tk.LabelFrame(self.master,text='其他部分',padx=5,pady=5,width=800,height=100)
         fm2.grid(row=1,column=1,padx=10,pady=10)
@@ -41,6 +47,10 @@ class Win_Program:
         button2 = tk.Button(fm2, text='Wifi 密码扫描',
                             command=lambda: self.Call_wifi_scan_win(self.master))
         button2.grid(row=0, column=2, padx=5, pady=0)
+
+        button2 = tk.Button(fm2, text='MP3 文件重命名',
+                            command=Tl_Rename_Screen)
+        button2.grid(row=0, column=3, padx=5, pady=0)
 
         fm3=tk.LabelFrame(self.master,text='OpenCV部分',padx=5,pady=5,width=800,height=100)
         fm3.grid(row=2,column=1,padx=10,pady=10)

@@ -4,6 +4,7 @@
 #  Python: 3.7
 #功能: 根据关键词 key 到baidu 下载 pic_number 张的图片
 #参考页面 https://blog.csdn.net/qq_42554007/article/details/105948099
+#2020/05/10: 本程序暂时没有在 本工具夹 中 被调用 
 
 import os
 import requests
